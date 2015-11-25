@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Web;
 using System.Web.Mvc;
 using TwitterBootstrapMVC.ControlInterfaces;
 using TwitterBootstrapMVC.ControlModels;
@@ -11,22 +12,21 @@ using TwitterBootstrapMVC.TypeExtensions;
 
 namespace TwitterBootstrapMVC.Controls
 {
-    public class BootstrapTextBox : BootstrapTextBoxBase<BootstrapTextBox>
+    public class BootstrapTextBox<TModel> : BootstrapTextBoxBase<TModel, BootstrapTextBox<TModel>>
     {
-        public BootstrapTextBox(HtmlHelper html, string htmlFieldName, ModelMetadata metadata)
+        public BootstrapTextBox(HtmlHelper<TModel> html, string htmlFieldName, ModelMetadata metadata)
             : base(html, htmlFieldName, metadata)
         {
 
         }
     }
 
-    public class BootstrapTextBoxBase<T> : IBootstrapTextBox<T>
-        where T : BootstrapTextBoxBase<T>
+    public class BootstrapTextBoxBase<TModel, T> : IHtmlString where T : BootstrapTextBoxBase<TModel, T>
     {
-        protected HtmlHelper html;
+        protected HtmlHelper<TModel> html;
         protected BootstrapTextBoxModel _model = new BootstrapTextBoxModel();
 
-        public BootstrapTextBoxBase(HtmlHelper html, string htmlFieldName, ModelMetadata metadata)
+        public BootstrapTextBoxBase(HtmlHelper<TModel> html, string htmlFieldName, ModelMetadata metadata)
         {
             this.html = html;
             this._model.htmlFieldName = htmlFieldName;
@@ -210,7 +210,7 @@ namespace TwitterBootstrapMVC.Controls
         [EditorBrowsable(EditorBrowsableState.Never)]
         public virtual string ToHtmlString()
         {
-            return Renderer.RenderTextBox(html, _model, false);
+            return Renderer<TModel>.RenderTextBox(html, _model, false);
         }
 
         [EditorBrowsable(EditorBrowsableState.Never)]

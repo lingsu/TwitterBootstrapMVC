@@ -7,9 +7,9 @@ using TwitterBootstrapMVC.Renderers;
 
 namespace TwitterBootstrapMVC.Controls
 {
-    public class BootstrapPassword : BootstrapTextBoxBase<BootstrapPassword>
+    public class BootstrapPassword<TModel> : BootstrapTextBoxBase<TModel, BootstrapPassword<TModel>>
     {
-        public BootstrapPassword(HtmlHelper html, string htmlFieldName, ModelMetadata metadata)
+        public BootstrapPassword(HtmlHelper<TModel> html, string htmlFieldName, ModelMetadata metadata)
             : base(html, htmlFieldName, metadata)
         {
             this.html = html;
@@ -26,7 +26,7 @@ namespace TwitterBootstrapMVC.Controls
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override string ToHtmlString()
         {
-            return Renderer.RenderTextBox(html, _model, true);
+            return Renderer<TModel>.RenderTextBox(html, _model, true);
         }
 
         [EditorBrowsable(EditorBrowsableState.Never)]

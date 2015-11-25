@@ -7,9 +7,9 @@ using TwitterBootstrapMVC.Renderers;
 
 namespace TwitterBootstrapMVC.Controls
 {
-    public class BootstrapControlGroupPassword : BootstrapTextBoxBase<BootstrapControlGroupPassword>
+    public class BootstrapControlGroupPassword<TModel> : BootstrapTextBoxBase<TModel, BootstrapControlGroupPassword<TModel>>
     {
-        public BootstrapControlGroupPassword(HtmlHelper html, string htmlFieldName, ModelMetadata metadata)
+        public BootstrapControlGroupPassword(HtmlHelper<TModel> html, string htmlFieldName, ModelMetadata metadata)
             : base(html, htmlFieldName, metadata)
         {
             this._model.displayValidationMessage = true;

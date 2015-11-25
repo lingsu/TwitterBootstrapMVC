@@ -20,24 +20,24 @@ namespace TwitterBootstrapMVC.BootstrapMethods
             return new BootstrapLabel(Html, ExpressionHelper.GetExpressionText(expression), ModelMetadata.FromLambdaExpression(expression, Html.ViewData));
         }
 
-        public BootstrapTextBox TextBox(string htmlFieldName)
+        public BootstrapTextBox<TModel> TextBox(string htmlFieldName)
         {
-            return new BootstrapTextBox(Html, htmlFieldName, ModelMetadata.FromStringExpression(htmlFieldName, Html.ViewData));
+            return new BootstrapTextBox<TModel>(Html, htmlFieldName, ModelMetadata.FromStringExpression(htmlFieldName, Html.ViewData));
         }
 
-        public BootstrapTextBox TextBoxFor<TValue>(Expression<Func<TModel, TValue>> expression)
+        public BootstrapTextBox<TModel> TextBoxFor<TValue>(Expression<Func<TModel, TValue>> expression)
         {
-            return new BootstrapTextBox(Html, ExpressionHelper.GetExpressionText(expression), ModelMetadata.FromLambdaExpression(expression, Html.ViewData));
+            return new BootstrapTextBox<TModel>(Html, ExpressionHelper.GetExpressionText(expression), ModelMetadata.FromLambdaExpression(expression, Html.ViewData));
         }
 
-        public BootstrapPassword Password(string htmlFieldName)
+        public BootstrapPassword<TModel> Password(string htmlFieldName)
         {
-            return new BootstrapPassword(Html, htmlFieldName, ModelMetadata.FromStringExpression(htmlFieldName, Html.ViewData));
+            return new BootstrapPassword<TModel>(Html, htmlFieldName, ModelMetadata.FromStringExpression(htmlFieldName, Html.ViewData));
         }
 
-        public BootstrapPassword PasswordFor<TValue>(Expression<Func<TModel, TValue>> expression)
+        public BootstrapPassword<TModel> PasswordFor<TValue>(Expression<Func<TModel, TValue>> expression)
         {
-            return new BootstrapPassword(Html, ExpressionHelper.GetExpressionText(expression), ModelMetadata.FromLambdaExpression(expression, Html.ViewData));
+            return new BootstrapPassword<TModel>(Html, ExpressionHelper.GetExpressionText(expression), ModelMetadata.FromLambdaExpression(expression, Html.ViewData));
         }
 
         public BootstrapCheckBox CheckBox(string htmlFieldName)

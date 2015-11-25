@@ -29,24 +29,24 @@ namespace TwitterBootstrapMVC.BootstrapMethods
             return new BootstrapControlGroupDisplayText(html, ExpressionHelper.GetExpressionText(expression), ModelMetadata.FromLambdaExpression(expression, html.ViewData));
         }
 
-        public BootstrapControlGroupTextBox TextBox(string htmlFieldName)
+        public BootstrapControlGroupTextBox<TModel> TextBox(string htmlFieldName)
         {
-            return new BootstrapControlGroupTextBox(html, htmlFieldName, ModelMetadata.FromStringExpression(htmlFieldName, html.ViewData));
+            return new BootstrapControlGroupTextBox<TModel>(html, htmlFieldName, ModelMetadata.FromStringExpression(htmlFieldName, html.ViewData));
         }
 
-        public BootstrapControlGroupTextBox TextBoxFor<TValue>(Expression<Func<TModel, TValue>> expression)
+        public BootstrapControlGroupTextBox<TModel> TextBoxFor<TValue>(Expression<Func<TModel, TValue>> expression)
         {
-            return new BootstrapControlGroupTextBox(html, ExpressionHelper.GetExpressionText(expression), ModelMetadata.FromLambdaExpression(expression, html.ViewData));
+            return new BootstrapControlGroupTextBox<TModel>(html, ExpressionHelper.GetExpressionText(expression), ModelMetadata.FromLambdaExpression(expression, html.ViewData));
         }
 
-        public BootstrapControlGroupPassword Password(string htmlFieldName)
+        public BootstrapControlGroupPassword<TModel> Password(string htmlFieldName)
         {
-            return new BootstrapControlGroupPassword(html, htmlFieldName, ModelMetadata.FromStringExpression(htmlFieldName, html.ViewData));
+            return new BootstrapControlGroupPassword<TModel>(html, htmlFieldName, ModelMetadata.FromStringExpression(htmlFieldName, html.ViewData));
         }
 
-        public BootstrapControlGroupPassword PasswordFor<TValue>(Expression<Func<TModel, TValue>> expression)
+        public BootstrapControlGroupPassword<TModel> PasswordFor<TValue>(Expression<Func<TModel, TValue>> expression)
         {
-            return new BootstrapControlGroupPassword(html, ExpressionHelper.GetExpressionText(expression), ModelMetadata.FromLambdaExpression(expression, html.ViewData));
+            return new BootstrapControlGroupPassword<TModel>(html, ExpressionHelper.GetExpressionText(expression), ModelMetadata.FromLambdaExpression(expression, html.ViewData));
         }
 
         public BootstrapControlGroupFile File(string htmlFieldName)

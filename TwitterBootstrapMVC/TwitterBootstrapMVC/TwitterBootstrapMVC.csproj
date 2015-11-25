@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TwitterBootstrapMVC</RootNamespace>
     <AssemblyName>TwitterBootstrapMVC</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,7 +75,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BootstrapHtmlExtension.cs" />
+    <Compile Include="Infrastructure\ConfigurationClasses\VersionSpecific.cs" />
+    <Compile Include="Renderers\RendererOfTModel.TextBox.cs" />
+    <Compile Include="TwitterBootstrap2\BootstrapHtmlExtension.cs" />
     <Compile Include="BootstrapMethods\Bootstrap.ActionLinkButton.cs" />
     <Compile Include="BootstrapMethods\Bootstrap.Begin.cs" />
     <Compile Include="BootstrapMethods\Bootstrap.Common.cs" />
@@ -231,6 +234,14 @@
     <Compile Include="Renderers\Renderer.SelectElement.cs" />
     <Compile Include="Renderers\Renderer.TextArea.cs" />
     <Compile Include="Renderers\Renderer.TextBox.cs" />
+    <Compile Include="TwitterBootstrap3\AlertColor.cs" />
+    <Compile Include="TwitterBootstrap3\BootstrapHtmlExtension.cs" />
+    <Compile Include="TwitterBootstrap3\ButtonStyle.cs" />
+    <Compile Include="TwitterBootstrap3\FormType.cs" />
+    <Compile Include="TwitterBootstrap3\InputSize.cs" />
+    <Compile Include="TwitterBootstrap3\ModalSize.cs" />
+    <Compile Include="TwitterBootstrap3\NavType.cs" />
+    <Compile Include="TwitterBootstrap3\V3Extensions.cs" />
     <Compile Include="TypeExtensions\TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

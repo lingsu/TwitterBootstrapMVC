@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using TwitterBootstrapMVC.BootstrapMethods;
 
-namespace TwitterBootstrapMVC
+namespace TwitterBootstrap2
 {
     public static class BootstrapHtmlExtension
     {

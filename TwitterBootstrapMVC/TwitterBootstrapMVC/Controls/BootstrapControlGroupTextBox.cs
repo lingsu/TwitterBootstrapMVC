@@ -7,9 +7,9 @@ using TwitterBootstrapMVC.Renderers;
 
 namespace TwitterBootstrapMVC.Controls
 {
-    public class BootstrapControlGroupTextBox : BootstrapTextBoxBase<BootstrapControlGroupTextBox>
+    public class BootstrapControlGroupTextBox<TModel> : BootstrapTextBoxBase<TModel, BootstrapControlGroupTextBox<TModel>>
     {
-        public BootstrapControlGroupTextBox(HtmlHelper html, string htmlFieldName, ModelMetadata metadata)
+        public BootstrapControlGroupTextBox(HtmlHelper<TModel> html, string htmlFieldName, ModelMetadata metadata)
             : base(html, htmlFieldName, metadata)
         {
             this._model.displayValidationMessage = true;
