@@ -10,7 +10,7 @@ namespace TwitterBootstrapMVC.Renderers
     {
         public static string RenderCheckBox(HtmlHelper html, BootstrapCheckBoxModel model)
         {
-            model.htmlAttributes.MergeHtmlAttributes(html.GetUnobtrusiveValidationAttributes(model.htmlFieldName, model.metadata));
+            //model.htmlAttributes.MergeHtmlAttributes(html.GetUnobtrusiveValidationAttributes(model.htmlFieldName, model.metadata));
             if (model.tooltipConfiguration != null) model.htmlAttributes.MergeHtmlAttributes(model.tooltipConfiguration.ToDictionary());
             if (model.tooltip != null) model.htmlAttributes.MergeHtmlAttributes(model.tooltip.ToDictionary());
             var mergedHtmlAttrs = string.IsNullOrEmpty(model.id) ? model.htmlAttributes : model.htmlAttributes.AddOrReplace("id", model.id);
@@ -21,7 +21,20 @@ namespace TwitterBootstrapMVC.Renderers
                 string validation = html.ValidationMessage(model.htmlFieldName).ToHtmlString();
                 validationMessage = new BootstrapHelpText(validation, model.validationMessageStyle).ToHtmlString();
             }
-            return html.CheckBox(model.htmlFieldName, model.isChecked, mergedHtmlAttrs.FormatHtmlAttributes()).ToHtmlString() + validationMessage;
+
+            TagBuilder input = new TagBuilder("input");
+            //input.MergeAttribute("type", "checkbox");
+            input.AddOrMergeAttribute("type", "checkbox");
+            input.AddOrMergeAttribute("value", "true");
+            input.AddOrMergeAttribute("name", model.htmlFieldName);
+            input.MergeAttributes(model.htmlAttributes.FormatHtmlAttributes());
+            if (model.isChecked)
+            {
+                input.AddOrMergeAttribute("checked", "checked");
+            }
+
+            return input.ToString(TagRenderMode.Normal);
+            // return html.CheckBox(model.htmlFieldName, model.isChecked, mergedHtmlAttrs.FormatHtmlAttributes()).ToHtmlString() + validationMessage;
         }
     }
 }
