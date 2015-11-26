@@ -22,6 +22,7 @@ namespace TwitterBootstrapMVC.Renderers
             {
                 model.htmlAttributes.Add("required", "");
             }
+
             //model.htmlAttributes.MergeHtmlAttributes(html.GetUnobtrusiveValidationAttributes(model.htmlFieldName, model.metadata));
 
             if (!string.IsNullOrEmpty(model.id)) model.htmlAttributes.Add("id", model.id);

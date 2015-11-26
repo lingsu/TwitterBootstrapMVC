@@ -200,7 +200,22 @@ namespace TwitterBootstrapMVC.Controls
             _model.typehead = typehead;
             return (T)this;
         }
-
+        public T Readonly(bool isReadonly = true)
+        {
+            if (isReadonly)
+            {
+                this._model.htmlAttributes.AddOrReplace("readonly", "readonly");
+            }
+            return (T)this;
+        }
+        public T Disabled(bool isDisabled = true)
+        {
+            if (isDisabled)
+            {
+                this._model.htmlAttributes.AddOrReplace("disabled", "disabled");
+            }
+            return (T)this;
+        }
         public virtual IBootstrapLabel Label()
         {
             IBootstrapLabel l = new BootstrapInputLabeled(html, _model, BootstrapInputType.TextBox);
